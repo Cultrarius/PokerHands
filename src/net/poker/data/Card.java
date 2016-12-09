@@ -5,11 +5,14 @@ package net.poker.data;
  */
 public class Card {
 
+    private Value value;
+    private Suit suit;
+
     public enum Value {
-        ONE, TWO, THREE, FOUR
+        TWO, THREE, FOUR, FIVE, SIX, SEVEN, EIGHT, NINE, TEN, JACK, QUEEN, KING, ACE
     }
 
-    public enum Color {
-        HEARTS, DIAMOND, PIKE,
+    public enum Suit {
+        HEARTS, DIAMONDS, SPADE, CLUB
     }
 }
