@@ -28,6 +28,10 @@ public class PokerHand implements Comparable<PokerHand> {
         return cards;
     }
 
+    public Card getHighCard() {
+        return cards.get(4);
+    }
+
     @Override
     public String toString() {
         return cards.toString();

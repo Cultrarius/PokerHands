@@ -9,9 +9,9 @@ import java.util.Set;
 import java.util.stream.Collectors;
 
 /**
- * 5 cards of the same suit with consecutive values. Ranked by the highest card in the hand.
+ * Hand contains 5 cards of the same suit. Hands which are both flushes are ranked using the rules for High Card.
  */
-public class StraightFlush implements IPokerRule {
+public class Flush implements IPokerRule {
     @Override
     public int compareHands(PokerHand first, PokerHand second) {
         int flushValueFirst = getFlushValue(first);
@@ -23,7 +23,6 @@ public class StraightFlush implements IPokerRule {
         List<Card> cards = hand.getCards();
         Set<Card.Suit> suits = cards.stream().map(Card::getSuit).collect(Collectors.toSet());
         int highValue = hand.getHighCard().getValue().ordinal();
-        boolean consecutive = 4 == highValue - cards.get(0).getValue().ordinal();
-        return suits.size() == 1 && consecutive ? highValue : 0;
+        return suits.size() == 1 ? highValue : 0;
     }
 }
