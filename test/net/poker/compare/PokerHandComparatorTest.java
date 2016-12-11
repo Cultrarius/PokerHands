@@ -1,15 +1,10 @@
 package net.poker.compare;
 
-import com.google.common.collect.ImmutableList;
-import net.poker.data.Card;
 import net.poker.data.PokerHand;
 import net.poker.util.HandBuilder;
 import org.junit.Test;
 
-import java.util.ArrayList;
-import java.util.List;
-
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
 
 public class PokerHandComparatorTest {
     @Test
@@ -34,5 +29,21 @@ public class PokerHandComparatorTest {
         PokerHand hand2 = HandBuilder.makeHand("KS QS TS JS 9S");
         int result = hand1.compareTo(hand2);
         assertEquals(-1, result);
+    }
+
+    @Test
+    public void compareFourOfAKind() throws Exception {
+        PokerHand hand1 = HandBuilder.makeHand("2S KD TH 3H JH");
+        PokerHand hand2 = HandBuilder.makeHand("4S 4D 4H 4C 5H");
+        int result = hand1.compareTo(hand2);
+        assertEquals(-1, result);
+    }
+
+    @Test
+    public void compareFourOfAKinds() throws Exception {
+        PokerHand hand1 = HandBuilder.makeHand("KS KD KH KC 4H");
+        PokerHand hand2 = HandBuilder.makeHand("4S 4D 4H 4C 5H");
+        int result = hand1.compareTo(hand2);
+        assertEquals(1, result);
     }
 }

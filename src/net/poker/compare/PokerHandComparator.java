@@ -1,6 +1,7 @@
 package net.poker.compare;
 
 import com.google.common.collect.ImmutableList;
+import net.poker.compare.rule.FourOfAKind;
 import net.poker.compare.rule.StraightFlush;
 import net.poker.data.PokerHand;
 
@@ -12,8 +13,9 @@ import java.util.List;
  */
 public class PokerHandComparator implements Comparator<PokerHand> {
 
-    List<IPokerRule> rules = ImmutableList.<IPokerRule>builder()
-            .add(new StraightFlush()).build();
+    private List<IPokerRule> rules = ImmutableList.<IPokerRule>builder()
+            .add(new StraightFlush())
+            .add(new FourOfAKind()).build();
 
     @Override
     public int compare(PokerHand first, PokerHand second) {
