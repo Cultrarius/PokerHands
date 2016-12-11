@@ -118,4 +118,36 @@ public class PokerHandComparatorTest {
         int result = hand1.compareTo(hand2);
         assertEquals(1, result);
     }
+
+    @Test
+    public void compareTwoPairs() throws Exception {
+        PokerHand hand1 = HandBuilder.makeHand("KS KD QH QC 4H");
+        PokerHand hand2 = HandBuilder.makeHand("2S KD TH 3H JH");
+        int result = hand1.compareTo(hand2);
+        assertEquals(1, result);
+    }
+
+    @Test
+    public void compareTwoPairsHighestPair() throws Exception {
+        PokerHand hand1 = HandBuilder.makeHand("KS KD QH QC 4H");
+        PokerHand hand2 = HandBuilder.makeHand("QS QD JH JC 4H");
+        int result = hand1.compareTo(hand2);
+        assertEquals(1, result);
+    }
+
+    @Test
+    public void compareTwoPairsSecondPair() throws Exception {
+        PokerHand hand1 = HandBuilder.makeHand("KS KD JH JC 4H");
+        PokerHand hand2 = HandBuilder.makeHand("KS KD QH QC 4H");
+        int result = hand1.compareTo(hand2);
+        assertEquals(-1, result);
+    }
+
+    @Test
+    public void compareTwoPairsSingleCard() throws Exception {
+        PokerHand hand1 = HandBuilder.makeHand("KS KD JH JC 3H");
+        PokerHand hand2 = HandBuilder.makeHand("KS KC JS JH 4H");
+        int result = hand1.compareTo(hand2);
+        assertEquals(-1, result);
+    }
 }
