@@ -1,6 +1,7 @@
 package net.poker.util;
 
 import com.google.common.collect.ImmutableMap;
+import com.sun.istack.internal.NotNull;
 import net.poker.data.Card;
 import net.poker.data.PokerHand;
 
@@ -28,7 +29,10 @@ public class HandBuilder {
             .put('A', Card.Value.ACE)
             .build();
 
-    public static PokerHand makeHand(String s) throws IllegalArgumentException {
+    public static PokerHand makeHand(@NotNull String s) throws IllegalArgumentException {
+        if (s == null) {
+            throw new IllegalArgumentException("Invalid null input");
+        }
         List<Card> cards = new ArrayList<>();
         String[] tokens = s.toUpperCase().split("\\s+");
         if (tokens.length != 5) {
