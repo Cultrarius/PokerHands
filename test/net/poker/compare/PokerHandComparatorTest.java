@@ -86,4 +86,20 @@ public class PokerHandComparatorTest {
         int result = hand1.compareTo(hand2);
         assertEquals(-1, result);
     }
+
+    @Test
+    public void compareStraight() throws Exception {
+        PokerHand hand1 = HandBuilder.makeHand("3D 7S 4S 5H 6S");
+        PokerHand hand2 = HandBuilder.makeHand("AS AD 2H AC KH");
+        int result = hand1.compareTo(hand2);
+        assertEquals(1, result);
+    }
+
+    @Test
+    public void compareStraights() throws Exception {
+        PokerHand hand1 = HandBuilder.makeHand("3C 7S 4H 5S 6S");
+        PokerHand hand2 = HandBuilder.makeHand("KS QC TD JS 9S");
+        int result = hand1.compareTo(hand2);
+        assertEquals(-1, result);
+    }
 }

@@ -1,10 +1,7 @@
 package net.poker.compare;
 
 import com.google.common.collect.ImmutableList;
-import net.poker.compare.rule.Flush;
-import net.poker.compare.rule.FourOfAKind;
-import net.poker.compare.rule.FullHouse;
-import net.poker.compare.rule.StraightFlush;
+import net.poker.compare.rule.*;
 import net.poker.data.PokerHand;
 
 import java.util.Comparator;
@@ -20,6 +17,7 @@ public class PokerHandComparator implements Comparator<PokerHand> {
             .add(new FourOfAKind())
             .add(new FullHouse())
             .add(new Flush())
+            .add(new Straight())
             .build();
 
     @Override
