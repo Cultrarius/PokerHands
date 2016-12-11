@@ -21,6 +21,7 @@ public class PokerHandComparator implements Comparator<PokerHand> {
             .add(new ThreeOfAKind())
             .add(new TwoPairs())
             .add(new Pair())
+            .add(new HighCard())
             .build();
 
     @Override

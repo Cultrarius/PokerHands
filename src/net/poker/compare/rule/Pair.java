@@ -19,7 +19,7 @@ public class Pair implements IPokerRule {
         int valueFirst = getPairValue(first);
         int valueSecond = getPairValue(second);
         int result = Integer.compare(valueFirst, valueSecond);
-        if (result != 0) {
+        if (result != 0 || valueFirst == -1 && valueSecond == -1) {
             return result;
         }
         for (int i = 4; i >= 0; i--) {
