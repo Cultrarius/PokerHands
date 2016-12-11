@@ -55,6 +55,6 @@ public class Card implements Comparable<Card> {
     }
 
     public enum Suit {
-        HEARTS, DIAMONDS, SPADE, CLUB
+        HEARTS, DIAMONDS, SPADES, CLUB
     }
 }
