@@ -45,6 +45,14 @@ public class HandBuilderTest {
 
     @Test
     public void simpleHandSpacesTest() throws Exception {
-        HandBuilder.makeHand("2S   KD   TH  3H    JH");
+        List<Card> cards = HandBuilder.makeHand("2S   KD   TH  3H    JH").getCards();
+
+        assertEquals(5, cards.size());
+
+        assertEquals(Card.Suit.SPADES, cards.get(0).getSuit());
+        assertEquals(Card.Value.TWO, cards.get(0).getValue());
+
+        assertEquals(Card.Suit.DIAMONDS, cards.get(4).getSuit());
+        assertEquals(Card.Value.KING, cards.get(4).getValue());
     }
 }
