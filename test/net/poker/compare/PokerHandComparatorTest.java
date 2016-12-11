@@ -46,4 +46,28 @@ public class PokerHandComparatorTest {
         int result = hand1.compareTo(hand2);
         assertEquals(1, result);
     }
+
+    @Test
+    public void compareStraightFlushVsFourOfAKind() throws Exception {
+        PokerHand hand1 = HandBuilder.makeHand("KS QS TS JS 9S");
+        PokerHand hand2 = HandBuilder.makeHand("AS AD AH AC KH");
+        int result = hand1.compareTo(hand2);
+        assertEquals(1, result);
+    }
+
+    @Test
+    public void compareFullHouse() throws Exception {
+        PokerHand hand1 = HandBuilder.makeHand("2S 2D 2H 3H 3D");
+        PokerHand hand2 = HandBuilder.makeHand("AS AD KH QC JH");
+        int result = hand1.compareTo(hand2);
+        assertEquals(1, result);
+    }
+
+    @Test
+    public void compareFullHouses() throws Exception {
+        PokerHand hand1 = HandBuilder.makeHand("2S 2D 2H AH AD");
+        PokerHand hand2 = HandBuilder.makeHand("3S 3D 3H 2H 2D");
+        int result = hand1.compareTo(hand2);
+        assertEquals(-1, result);
+    }
 }
