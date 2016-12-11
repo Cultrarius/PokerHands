@@ -102,4 +102,20 @@ public class PokerHandComparatorTest {
         int result = hand1.compareTo(hand2);
         assertEquals(-1, result);
     }
+
+    @Test
+    public void compareThreeOfAKind() throws Exception {
+        PokerHand hand1 = HandBuilder.makeHand("2S KD TH 3H JH");
+        PokerHand hand2 = HandBuilder.makeHand("4S 4D 4H 6C 5H");
+        int result = hand1.compareTo(hand2);
+        assertEquals(-1, result);
+    }
+
+    @Test
+    public void compareThreeOfAKinds() throws Exception {
+        PokerHand hand1 = HandBuilder.makeHand("KS KD KH 6C 4H");
+        PokerHand hand2 = HandBuilder.makeHand("4S 4D 4H 6C 5H");
+        int result = hand1.compareTo(hand2);
+        assertEquals(1, result);
+    }
 }
