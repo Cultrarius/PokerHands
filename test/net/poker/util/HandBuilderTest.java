@@ -1,12 +1,11 @@
 package net.poker.util;
 
 import net.poker.data.Card;
-import net.poker.data.PokerHand;
 import org.junit.Test;
 
 import java.util.List;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
 
 public class HandBuilderTest {
 
@@ -28,6 +27,11 @@ public class HandBuilderTest {
     @Test(expected = IllegalArgumentException.class)
     public void noSpacesTest() throws Exception {
         HandBuilder.makeHand("2SKDTH3HJH");
+    }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void duplicateCardTest() throws Exception {
+        HandBuilder.makeHand("2S KD TH 3H 2S");
     }
 
     @Test
