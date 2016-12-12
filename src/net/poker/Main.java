@@ -7,7 +7,6 @@ import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
-import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
@@ -23,6 +22,7 @@ public class Main {
             System.err.println("Input file <" + input.getAbsolutePath() + "> does not exist.");
             return;
         }
+        System.out.println("Processing input file " + input.getAbsolutePath());
 
         try (Stream<String> stream = Files.lines(Paths.get(input.getAbsolutePath()))) {
             List<PokerHand> hands = stream.map(HandBuilder::makeHand).collect(Collectors.toList());
@@ -45,6 +45,5 @@ public class Main {
                 System.out.println(hand2);
             }
         }
-        System.out.println(Arrays.toString(args));
     }
 }
